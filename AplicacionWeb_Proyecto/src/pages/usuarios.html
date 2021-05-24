@@ -5,16 +5,61 @@
     <meta charset='utf-8'>
     <title>Usuarios</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>!-->
     <!-- <script src='main.js'></script>-->
 
 </head>
 
 <body>
-    <h1 id='h1-welcome'></h1>
-    <button type="button" id="btn-cerrar-sesion">Cerrar sesión</button>
+    <h1 id='Usuarios'></h1>
+
+    <div class='container'>
+        <div class='row'>
+            <div class='col-3'>
+                <label for="fname">Buscar usuarios por correo:</label><br/>
+                <input type="text" id="user-search-correo" name="fname" />
+                <button type="button" id="btn-buscar-usuario">Buscar</button>
+            </div>
+            <div class='col'>
+
+            </div>
+            <div class='col'>
+                <br>
+                <button type="button" id="btn-añadir-usuarios">Añadir usuario</button>
+                <br>
+                <button type="button" id="btn-quitar-filtro">Quitar filtros</button>
+            </div>
+        </div>
+        <br>
+        <div class='row'>
+
+            <div class='col-11'>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">Correo</th>
+                            <th scope="col">Nombres</th>
+                            <th scope="col">Apellidos</th>
+                            <th scope="col">Funciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id='tabla-usuarios'>
+
+
+                    </tbody>
+                </table>
+            </div>
+
+
+        </div>
+    </div>
+
+
 
 </body>
-<script src="../home.js"></script>
+<script src='../request.js'></script>
+<script src='../usuarios.js'></script>
+
 
 </html>

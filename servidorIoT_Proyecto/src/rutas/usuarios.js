@@ -103,6 +103,26 @@ router.get('/compare/:id/:contrasena', (req, res) => {
         });
     });
 });
+//BUSCAR A UN USUARIO POR EL CORREO
+router.get('/usuarios/:id', (req, res) => {
+    var id = req.params.id;
+    var contraRecibida = req.params.contrasena;
+
+    const query = {
+        '_id': id
+    };
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("DB_UsuariosEmpresasCañas");
+        dbo.collection("usuarios").find(query).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.json(result);
+            db.close();
+        });
+    });
+});
 
 
 
