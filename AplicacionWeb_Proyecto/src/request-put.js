@@ -1,6 +1,5 @@
-//función para generar la petición get al servidor 
-const requestData = async(url) => {
-    const response = await fetch(url)
+const putData = async(url) => {
+    const response = await fetch(url, { method: 'PUT' })
     if (response.status >= 200 && response.status < 300) {
         return response.json()
     } else {

@@ -1,3 +1,4 @@
+//función para cargar los datos
 window.onload = function() {
     sessionStorage.setItem("logged", "")
 }

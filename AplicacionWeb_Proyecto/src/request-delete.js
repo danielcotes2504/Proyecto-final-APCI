@@ -1,6 +1,5 @@
-//función para generar la petición get al servidor 
-const requestData = async(url) => {
-    const response = await fetch(url)
+const removeData = async(url) => {
+    const response = await fetch(url, { method: 'DELETE' })
     if (response.status >= 200 && response.status < 300) {
         return response.json()
     } else {
