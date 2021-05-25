@@ -1,7 +1,7 @@
-const putData = async(url, data) => {
+const postData = async(url, data) => {
 
     const response = await fetch(url, {
-        method: 'PUT',
+        method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(data)
 

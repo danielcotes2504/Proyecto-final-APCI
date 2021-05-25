@@ -34,7 +34,6 @@ const renderer = (data) => {
                         text: "Una vez eliminado, no podrás recuperar este usuario",
                         icon: "warning",
                         buttons: ["No", "Eliminar"],
-                        confirmButtonColor: '#64B257',
                         dangerMode: true,
                     })
                     .then((willDelete) => {
@@ -52,7 +51,7 @@ const renderer = (data) => {
             })
 
             btn_editar.addEventListener('click', (e) => {
-                location.assign(`.usuarios-editar.html#${element._id}`)
+                location.assign(`usuarios-editar.html#${element._id}`)
 
             })
 
@@ -86,6 +85,10 @@ document.querySelector('#btn-buscar-usuario').addEventListener("click", (e) => {
     // evento que escucha al botón de quitar filtros
 document.querySelector('#btn-quitar-filtro').addEventListener("click", (e) => {
     loadData(`usuarios`)
+})
+
+document.querySelector('#btn-añadir-usuarios').addEventListener("click", (e) => {
+    location.assign(`usuarios-agregar.html`)
 })
 
 const deleteData = async(string) => {

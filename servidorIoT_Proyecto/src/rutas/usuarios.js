@@ -128,18 +128,29 @@ router.get('/usuarios/:id', (req, res) => {
 
 //MODIFICAR UN USUARIO
 // router.put('/usuarios/:id/:nombre/:apellido/:empresa/:contrasena', (req, res) => {
-router.put('/usuarios/:id', (req, res) => {
+router.put('/usuarios/:id', async(req, res) => {
     // console.log(" Entró ");
     var json = req.body;
-    console.log(json);
+    let count = Object.keys(json).length
+
+    console.log("la cuenta es " + count);
     var miMapa = new Map();
 
     let id = req.params.id;
+    if (count === 4) {
+        miMapa.set("nombre", json.nombre);
+        miMapa.set("apellido", json.apellido);
+        miMapa.set("empresa", json.empresa);
+        json.password = await bcryptjs.hash(json.password, 8);
+        miMapa.set("password", json.password);
 
-    miMapa.set("nombre", json.nombre);
-    miMapa.set("apellido", json.apellido);
-    miMapa.set("empresa", json.empresa);
-    miMapa.set("contraseña", json.contraseña);
+    } else if (count === 3) {
+        miMapa.set("nombre", json.nombre);
+        miMapa.set("apellido", json.apellido);
+        miMapa.set("empresa", json.empresa);
+    }
+
+
 
     const query = { '_id': id }
     let ajuste = {}
@@ -147,15 +158,16 @@ router.put('/usuarios/:id', (req, res) => {
     for (var [clave, valor] of miMapa) {
         if (valor != undefined) {
             ajuste[clave] = valor;
-            //console.log(clave + " = " + valor);
+
         }
+
     }
-    console.log(query);
-    console.log(ajuste);
+    //console.log(query);
+    console.log("ajuste es " + JSON.stringify(ajuste))
 
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
-        var dbo = db.db("DB_EmpresasCañas");
+        var dbo = db.db("DB_UsuariosEmpresasCañas");
         dbo.collection("usuarios").updateOne(query, {
             $set: ajuste
         }, function(err, result) {

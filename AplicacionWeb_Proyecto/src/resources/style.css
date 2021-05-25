@@ -1,63 +1,68 @@
 * {
-  margin: 0px;
-  padding: 0px;
-  box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
 }
 
 body {
-  width: 100vw;
-  height: 100vh;
-  font-family: "Roboto", sans-serif;
+    width: 100vw;
+    height: 100vh;
+    font-family: "Roboto", sans-serif;
 }
 
 .o-all-container {
-  width: 100%;
-  height: 100%;
+    width: 100%;
+    height: 100%;
 }
 
+
 /*---------------------------------------------------------------------------------------- Estilos de la pagina de inicio de sesión. la imagen de fondo  */
+
 .o-img-container {
-  background-image: url(/src/resources/4273549.jpg);
-  background-size: cover;
-  /* height: 100%;
+    background-image: url(/AplicacionWeb_Proyecto/src/resources/4273549.jpg);
+    background-size: cover;
+    /* height: 100%;
   width: 50%; */
 }
 
 .o-size-img {
-  height: 100%;
-  width: 100%;
+    height: 100%;
+    width: 100%;
 }
+
+
 /*---------------------------------------------------------------------------------------- Estilos de el form de la pagina de inicio de sesión */
 
 .o-title-container {
-  margin-bottom: 2em;
-  text-align: center;
+    margin-bottom: 2em;
+    text-align: center;
 }
+
 .o-form-container-all {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .o-form-container {
-  width: 30em;
+    width: 30em;
 }
 
 .o-btn-iniciossesion-container {
-  display: flex;
-  justify-content: center;
+    display: flex;
+    justify-content: center;
 }
 
 .btn.o-btn-style {
-  background-color: #49943f;
-  border: rgb(53, 104, 46);
-  width: 100%;
+    background-color: #49943f;
+    border: rgb(53, 104, 46);
+    width: 100%;
 }
 
 .btn.o-btn-style:hover {
-  background-color: rgb(53, 104, 46);
+    background-color: rgb(53, 104, 46);
 }
 
 .btn.o-btn-style:active {
-  background-color: rgb(63, 110, 57);
+    background-color: rgb(63, 110, 57);
 }
