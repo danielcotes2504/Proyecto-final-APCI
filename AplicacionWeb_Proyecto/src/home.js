@@ -1,5 +1,5 @@
 window.onload = function() {
-    verificacion()
+    //verificacion()
 }
 const bienvenida = document.querySelector('#h1-welcome')
 bienvenida.innerHTML = `Bienvenido ${sessionStorage.nombre_usuario}`

@@ -2,14 +2,14 @@ let hash = location.hash.substr(1)
     //función para que al cargar la página se ejecute una función
 window.onload = function() {
         //sessionStorage.setItem("logged", "")
-        verificacion()
+        //    verificacion()
 
         loadData(`usuarios/${hash}`)
 
     }
     //función para obtener los datos del servidor
 const loadData = async(string) => {
-    const url = `http://localhost:3000/${string}`
+    const url = `http://${ipsv()}:3000/${string}`
     const data = await requestData(url)
     console.log(data)
     fillInput(data)
@@ -17,7 +17,7 @@ const loadData = async(string) => {
 }
 
 const updateData = async(string, body) => {
-    const url = `http://localhost:3000/${string}`
+    const url = `http://${ipsv()}:3000/${string}`
     const data = await putData(url, body)
     console.log(data)
 

@@ -7,3 +7,9 @@ const verificacion = () => {
         }
     }
 }
+
+
+const ipsv = () => {
+    const variable = 'localhost'
+    return variable
+}

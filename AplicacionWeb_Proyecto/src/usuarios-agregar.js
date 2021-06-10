@@ -1,5 +1,5 @@
 const createUser = async(string, body) => {
-    const url = `http://localhost:3000/${string}`
+    const url = `http://${ipsv()}:3000/${string}`
     const data = await postData(url, body)
     console.log(data)
 

@@ -5,7 +5,8 @@ const { Router, query } = require('express');
 const router = Router();
 const mysql = require('mongodb');
 let MongoClient = require('mongodb').MongoClient;
-let url = "mongodb://localhost:27017/";
+require('../host.js')()
+let url = `mongodb://${hostName()}:27017/`;
 
 /*
  * Requires the MongoDB Node.js Driver

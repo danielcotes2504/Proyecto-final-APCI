@@ -1,13 +1,13 @@
 //función para que al cargar la página se ejecute una función
 window.onload = function() {
         //sessionStorage.setItem("logged", "")
-        verificacion()
+        // verificacion()
         loadData('usuarios')
 
     }
     //función para obtener los datos del servidor
 const loadData = async(string) => {
-        const url = `http://localhost:3000/${string}`
+        const url = `http://${ipsv()}:3000/${string}`
         const data = await requestData(url)
         console.log(data)
         renderer(data)
@@ -75,7 +75,7 @@ const renderer = (data) => {
 
 
     }
-    //evento que escucha al botón de buscar al usuario por correo
+    //evento que escucha al botón de buscar al usuario por correo 
 document.querySelector('#btn-buscar-usuario').addEventListener("click", (e) => {
         const correo = document.querySelector('#user-search-correo').value
         if (correo != " ") loadData(`usuarios/${correo}`)
@@ -92,7 +92,7 @@ document.querySelector('#btn-añadir-usuarios').addEventListener("click", (e) =>
 })
 
 const deleteData = async(string) => {
-    const url = `http://localhost:3000/usuarios/${string}`
+    const url = `http://${ipsv()}:3000/usuarios/${string}`
     const data = await removeData(url)
     console.log(data)
     loadData('usuarios')

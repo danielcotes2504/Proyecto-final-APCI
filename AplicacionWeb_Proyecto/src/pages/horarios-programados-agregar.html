@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Home</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>!-->
+    <!-- <script src='main.js'></script>-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <script type="module" src=" ../node_modules/timepicker-ui/dist/timepicker-ui.esm.js "></script>
+    <link rel="stylesheet" href="../MCDatepicker-master/dist/mc-calendar.min.css" />
+    <script src="../MCDatepicker-master/dist/mc-calendar.min.js"></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+
+<body>
+
+
+    <div>
+        <label for="login-user-input-password">Fecha</label>
+        <input id="date-picker" type="text" />
+    </div>
+
+    <div class="example2">
+        <label for="login-user-input-password">Hora inicial</label>
+        <input id="input-hora-inicial" class=" timepicker-ui-input " value="9:00 AM " />
+    </div>
+
+    <div class="example3">
+        <label for="login-user-input-password">Hora final</label>
+        <input id="input-hora-final" class=" timepicker-ui-input " value="9:00 PM " />
+    </div>
+
+    <div>
+        <label for="login-user-input-password">Zona</label>
+        <input id="input-zona" type="number" />
+    </div>
+    <button type="button" id="btn-añadir-horario">Añadir horario</button>
+
+
+
+
+
+
+</body>
+<script src="../sesion.js"></script>
+<script src="../request-post.js"></script>
+<script type="module" src="../time-picker.mjs"></script>
+<script type="module" src="../date-picker.js"></script>
+<script type="module" src="../horarios-programados-agregar.js"></script>
+
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <title>Consultar Dispositivos</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='../resources/style.css'>
+    <!-- <script src='main.js'></script>-->
+
+</head>
+
+<body>
+    <div class="row o-all-container">
+
+
+        <div class="col-8">
+            <div class='container'>
+                <br>
+                <h1 id='Usuarios' class="display-5 fw-bold">Dispositivos</h1>
+                <br><br>
+                <div class='row'>
+                    <div class='col-3'>
+                        <label for="fname">Filtrar por zona:</label><br />
+                        <input type="text" id="user-search-zona" class="form-control" name="fname" />
+                        <!-- <button type="button" id="btn-buscar-usuario">Buscar</button> -->
+                    </div>
+                    <div class='col-3'>
+                        <label for="fname">Filtrar por ID:</label><br />
+                        <input type="text" id="user-search-idnodo" class="form-control" name="fname" />
+                    </div>
+                    <div class='col-2'>
+                        <label for="fname"></label><br />
+                        <button type="submit" id="btn-buscar">Buscar</button>
+                        <!-- <button type="button" id="btn-buscar">Buscar</button> -->
+                    </div>
+                    <div class='col-3'>
+                        <br>
+                        <button type="button" id="btn-quitar-filtro">Quitar filtros</button>
+                    </div>
+                </div>
+                <br>
+                <div class='row'>
+
+                    <div class='col-11'>
+                        <table class="table table-striped table-bordered" id='tabla-usuarios'>
+                            <thead>
+                                <tr>
+                                    <th scope="col">Zona</th>
+                                    <th scope="col">ID Nodo</th>
+                                    <th scope="col">Temperatura</th>
+                                    <th scope="col">Concentración</th>
+                                    <th scope="col">Quema Detectada</th>
+                                    <th scope="col">Quema Controlada</th>
+                                </tr>
+                            </thead>
+                            <tbody id='tabla-usuarios-body'>
+
+
+                            </tbody>
+                        </table>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<!--<script src="../sesion.js"></script>--->
+<!-- <script src="../request-delete.js"></script> -->
+<script src="../sesion.js"></script>
+<script src='../request.js'></script>
+<script src='../datos-nodo.js'></script>
+
+
+
+
+</html>

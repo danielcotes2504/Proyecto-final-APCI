@@ -4,13 +4,13 @@ window.onload = function() {
 }
 
 const loadData = async(string) => {
-    const url = `http://localhost:3000/${string}`
+    const url = `http://${ipsv()}:3000/${string}`
     const data = await requestData(url)
     console.log(data)
 
 }
 const iniciarSesion = async(correo, password) => {
-    const url = `http://localhost:3000/compare/${correo}/${password}`
+    const url = `http://${ipsv()}:3000/compare/${correo}/${password}`
     const data = await requestData(url)
     console.log(data)
     if (data.status == 'OK') {
