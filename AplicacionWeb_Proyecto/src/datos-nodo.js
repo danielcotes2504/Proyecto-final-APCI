@@ -1,7 +1,7 @@
 //función para que al cargar la página se ejecute una función
 window.onload = function() {
         //sessionStorage.setItem("logged", "")
-        // verificacion()
+        verificacion()
         loadData('datosnodo')
         loadAlert('alertaquemaWeb')
     }
@@ -39,13 +39,15 @@ const putAlert = (data) => {
         span.setAttribute('aria-hidden', 'true')
         const id_nodo = data[0].id_nodo
         const id_zona = data[0].id_zona
-        const fecha_hora = new Date(data[0].fecha_hora)
+        const options = { year: 'numeric', month: '2-digit', day: '2-digit' }
+        const fecha = new Date(data[0].fecha_hora).toLocaleDateString('fr-CA', options)
+        const hora = new Date(data[0].fecha_hora).toLocaleTimeString('en-US')
         const quema_controlada = data[0].alertas.quema_controlada
 
         if (quema_controlada === 'Quema no controlada') {
             id_aviso.setAttribute('class', 'alert alert-danger alert-dismissible fade show')
             alert_heading.innerHTML = "¡Se ha detectado una quema no controlada!"
-            alert_body.innerHTML = "Se deben tomar acciones"
+            alert_body.innerHTML = `El nodo ha ${id_nodo} registrado una quema no controlada en la zona ${id_zona}, a el día ${fecha} a las ${hora}, se deben tomar acciones`
             span.innerHTML = "&times;"
             body.appendChild(id_aviso)
             id_aviso.appendChild(alert_heading)
@@ -55,7 +57,7 @@ const putAlert = (data) => {
         } else if (quema_controlada === 'Quema Controlada') {
             id_aviso.setAttribute('class', 'alert alert-warning alert-dismissible fade show')
             alert_heading.innerHTML = "¡Se ha detectado una quema controlada!"
-            alert_body.innerHTML = "Consulte si se encuentra en la zona"
+            alert_body.innerHTML = `El nodo ha ${id_nodo} registrado una quema no controlada en la zona ${id_zona}, a el día ${fecha} a las ${hora}`
             span.innerHTML = "&times;"
             body.appendChild(id_aviso)
             id_aviso.appendChild(alert_heading)

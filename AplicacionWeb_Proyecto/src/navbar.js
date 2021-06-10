@@ -8,10 +8,7 @@ document.querySelector('#nav-div-text-Nodos').addEventListener("click", (e) => {
 
 
 })
-document.querySelector('#nav-div-text-Alertas').addEventListener("click", (e) => {
-    // window.location.href = "Alertas.html"
 
-})
 document.querySelector('#nav-div-text-Usuarios').addEventListener("click", (e) => {
     window.location.href = "usuarios.html"
 

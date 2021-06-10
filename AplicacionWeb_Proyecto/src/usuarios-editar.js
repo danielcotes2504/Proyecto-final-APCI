@@ -2,7 +2,7 @@ let hash = location.hash.substr(1)
     //función para que al cargar la página se ejecute una función
 window.onload = function() {
         //sessionStorage.setItem("logged", "")
-        //    verificacion()
+        verificacion()
 
         loadData(`usuarios/${hash}`)
 

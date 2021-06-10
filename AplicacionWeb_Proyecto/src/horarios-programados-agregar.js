@@ -1,7 +1,7 @@
 window.onload = function() {
 
     //sessionStorage.setItem("logged", "")
-    // verificacion()
+    verificacion()
 
 
 }

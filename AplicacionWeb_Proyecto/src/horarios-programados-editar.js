@@ -2,7 +2,7 @@ let hash = location.hash.substr(1)
 window.onload = function() {
 
     //sessionStorage.setItem("logged", "")
-    // verificacion()
+    verificacion()
     loadData(`datosm/ID/${hash}`)
 
 }

@@ -1,6 +1,6 @@
 window.onload = function() {
     //sessionStorage.setItem("logged", "")
-    // verificacion()
+    verificacion()
     loadData(`datosquema/Quema no controlada/3/2021-05-16 00:00:00/2021-05-16 23:59:00`)
 
 }
