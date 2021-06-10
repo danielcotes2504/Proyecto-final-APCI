@@ -140,5 +140,24 @@ router.get('/datosnodoL/:id_zona/:id_nodo', (req, res) => {
         });
     });
 });
+router.get('/datosnodoL/:id_zona/:id_nodo', (req, res) => {
+    let idZona = req.params.id_zona; //recogemos el parámetro enviado en la url
+    let idNodo = req.params.id_nodo;
 
+    const query = {
+        'id_zona': idZona,
+        'id_nodo': parseInt(idNodo)
+    };
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("DB_ManuelitaCañas");
+        dbo.collection("datosNodo").find(query, { limit: 1 }).sort({ _id: -1 }).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.json(result);
+            db.close();
+        });
+    });
+});
 module.exports = router;
