@@ -76,7 +76,7 @@ router.get('/datosm/fecha_horario/:fecha', (req, res) => {
     });
 });
 
-module.exports = router;
+
 
 router.post('/datosm', (req, res) => {
 
@@ -189,7 +189,7 @@ router.get('/horarios2/:id_zona', (req, res) => {
 
     let idZona = req.params.id_zona; //recogemos el parámetro enviado en la url
 
-    const query = [{ "$match": { "ZonaP": "6" } }, { "$sort": { "_id": -1 } },
+    const query = [{ "$match": { "ZonaP": idZona } }, { "$sort": { "_id": -1 } },
         {
             $project: {
                 ZonaP: "$ZonaP",
@@ -223,3 +223,5 @@ router.get('/horarios2/:id_zona', (req, res) => {
         });
     });
 });
+
+module.exports = router;

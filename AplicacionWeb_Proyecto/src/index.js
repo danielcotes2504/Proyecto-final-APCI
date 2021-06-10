@@ -10,6 +10,7 @@ const loadData = async(string) => {
 
 }
 const iniciarSesion = async(correo, password) => {
+
     const url = `http://${ipsv()}:3000/compare/${correo}/${password}`
     const data = await requestData(url)
     console.log(data)
@@ -18,7 +19,7 @@ const iniciarSesion = async(correo, password) => {
         sessionStorage.setItem("logged", correo)
         sessionStorage.setItem("nombre_usuario", data.username)
         if (sessionStorage.logged != "") {
-            window.location.href = "./src/pages/home.html"
+            window.location.href = "src/pages/home.html"
         }
     } else {
         console.log('revise su usuario o su contraseña')

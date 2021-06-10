@@ -89,6 +89,7 @@ router.get('/compare/:id/:contrasena', (req, res) => {
         var dbo = db.db("DB_UsuariosEmpresasCañas");
         dbo.collection("usuarios").find(query).toArray(function(err, result) {
             if (err) throw err;
+
             console.log(result);
 
             // Comparacion del hash de la contraseña

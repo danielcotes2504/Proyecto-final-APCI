@@ -1,7 +1,7 @@
 window.onload = function() {
     //sessionStorage.setItem("logged", "")
     // verificacion()
-    loadData('/datosquema/:tipo_quema/:id_zona/:fecha_I/:fecha_F')
+    loadData(`datosquema/Quema no controlada/3/2021-05-16 00:00:00/2021-05-16 23:59:00`)
 
 }
 
@@ -16,24 +16,19 @@ const loadData = async(string) => {
 
 const renderer = (data) => {
     let datos_quemas = [];
+    let labels_quemas = []
     data.forEach((element) => {
         let i = 0;
 
+        //element.alertas.quema_controlada
+        datos_quemas.push(element.alertas.quema_controlada)
+        labels_quemas.push(new Date(element.fecha_hora))
 
-        datos_quemas.push(i)
-        i += 2;
     })
 
     let ctx = document.getElementById('myChart').getContext('2d')
-
-    const labels = [
-        'January',
-        'February',
-        'March',
-        'April',
-        'May',
-        'June',
-    ];
+    console.log(labels_quemas)
+    const labels = labels_quemas
     const data_chart = {
         labels: labels,
         datasets: [{
@@ -42,12 +37,7 @@ const renderer = (data) => {
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgb(255, 99, 132)',
             },
-            {
-                label: 'Dataset 2',
-                data: [40, 30, 20, 32, 50, 21, 21],
-                borderColor: '#78a6ff',
-                backgroundColor: '#78a6ff',
-            }
+
         ]
     }
 

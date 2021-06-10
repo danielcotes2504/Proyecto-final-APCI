@@ -7,61 +7,61 @@
     <title>Iniciar sesión</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="src/resources/style.css" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet" />
-    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'> !-->
-    <!--<script src='main.js'></script>-->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap " rel="stylesheet" />
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 </head>
 
 <body>
 
-   
+    <div class="row o-all-container">
 
-        <div class="row o-all-container">
+        <div class="col-6 o-img-container">
 
-            <div class="col-6 o-img-container">
+            <img src="src/resources/foto2.jpg" class=" o-size-img" alt="Responsive image">
 
-                <!-- <img src="src/resources/foto2.jpg" class=" o-size-img" alt="Responsive image"> -->
-            
-            </div>
-    
-    
-            <div class="col-6 o-form-container-all">
-
-                <div class="o-form-container">
-
-                    <h2 class="o-title-container">
-                        LOGO DE LA APP XD
-                    </h2>
-                    <form>
-                        <div class="form-group">
-                          <label for="login-user-input-correo">Correo electrónico</label>
-                          <input type="email" class="form-control" id="login-user-input-correo" aria-describedby="emailHelp" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                          <label for="login-user-input-password">Contraseña:</label>
-                          <input type="password" class="form-control" id="login-user-input-password" placeholder="Password">
-                        </div>
-
-                        <div class="o-btn-iniciossesion-container">
-                            <button type="submit" class="btn btn-primary o-btn-style" id="login-user-btn">Iniciar sesión</button>
-
-                        </div>
-                    
-                       
-                      </form>
-
-                </div>
-    
-               
-            </div>
-           
         </div>
-   
-    
+
+
+        <div class="col-6 o-form-container-all">
+
+            <div class="o-form-container">
+
+                <h2 class="o-title-container">
+                    LOGO DE LA APP XD
+                </h2>
+                <form>
+                    <div class="form-group">
+                        <label for="login-user-input-correo">Correo electrónico</label>
+                        <input type="email" class="form-control" id="login-user-input-correo" aria-describedby="emailHelp" placeholder="correo@ejemplo.com">
+                    </div>
+                    <div class="form-group">
+                        <label for="login-user-input-password">Contraseña:</label>
+                        <input type="password" class="form-control" id="login-user-input-password" placeholder="Contraseña">
+                    </div>
+
+                    <div class="o-btn-iniciossesion-container">
+                        <button type="submit" class="btn btn-primary o-btn-style" id="login-user-btn">Iniciar sesión</button>
+
+                    </div>
+
+
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
 </body>
+
 <script src="src/request.js"></script>
+<script src="src/sesion.js"></script>
 <script src="src/index.js"></script>
 
 </html>

@@ -7,6 +7,10 @@
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='../resources/style.css'>
+    <link rel="stylesheet" type="text/css" href="../styles/main.css" media="screen" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap " rel="stylesheet " />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
     <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>!-->
     <!-- <script src='main.js'></script>-->
 
@@ -14,55 +18,140 @@
 
 <body>
     <h1 id='Usuarios'></h1>
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                <nav class="navbar-bg-light" id="navbar-ui">
+                    <ul class="nav navbar-nav">
+                        <!-- <img id="logo-navbar" src="../resources/logo.png" alt="logo" />-->
+                        <br> <br>
 
-    <div class='container'>
-        <div class='row'>
-            <div class='col-3'>
-                <label for="fname">Buscar usuarios por correo:</label><br/>
-                <input type="text" id="user-search-correo" name="fname" />
-                <button type="button" id="btn-buscar-usuario">Buscar</button>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-home"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Inicio">
+                                <a id="nav-text">Inicio </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+
+                                    <i class="fas fa-code-branch"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Nodos">
+                                <a id="nav-text">Nodos </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-bell"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Alertas">
+                                <a id="nav-text">Alertas </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-users"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Usuarios">
+                                <a id="nav-text">Administrar Usuarios </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-calendar-alt"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Horario">
+                                <a id="nav-text">Horarios programados </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Salir">
+                                <a id="nav-text">Salir</a>
+                            </div>
+                        </div>
+                    </ul>
+                </nav>
             </div>
-            <div class='col'>
+            <div class="col-11">
+                <div class='container'>
 
+                    <div class='row'>
+                        <div class='col-8'>
+                            <label for="fname">Buscar usuarios por correo:</label><br/>
+                            <input type="text" id="user-search-correo" name="fname" />
+                            <br><br>
+                            <button class="btn-ui" type="button" id="btn-buscar-usuario">Buscar</button>
+                        </div>
+
+                        <div class='col-3'>
+                            <br>
+                            <button class="btn-ui" type="button" id="btn-añadir-usuarios">Añadir usuario</button>
+                            <br>
+                            <button class="btn-ui" type="button" id="btn-quitar-filtro">Quitar filtros</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class='row'>
+
+                        <div class='col-11 table-wrapper-scroll-y my-custom-scrollbar'>
+                            <table class="table table-striped table-bordered" id='tabla-usuarios'>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Correo</th>
+                                        <th scope="col">Nombres</th>
+                                        <th scope="col">Apellidos</th>
+                                        <th scope="col">Funciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody id='tabla-usuarios-body'>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
-            <div class='col'>
-                <br>
-                <button type="button" id="btn-añadir-usuarios">Añadir usuario</button>
-                <br>
-                <button type="button" id="btn-quitar-filtro">Quitar filtros</button>
-            </div>
-        </div>
-        <br>
-        <div class='row'>
-
-            <div class='col-11'>
-                <table class="table table-striped table-bordered" id='tabla-usuarios'>
-                    <thead>
-                        <tr>
-                            <th scope="col">Correo</th>
-                            <th scope="col">Nombres</th>
-                            <th scope="col">Apellidos</th>
-                            <th scope="col">Funciones</th>
-                        </tr>
-                    </thead>
-                    <tbody id='tabla-usuarios-body'>
-
-
-                    </tbody>
-                </table>
-            </div>
-
-
         </div>
     </div>
-
-
 
 </body>
 <script src="../sesion.js"></script>
 <script src="../request-delete.js"></script>
 <script src='../request.js'></script>
 <script src='../usuarios.js'></script>
+<script src="../navbar.js"></script>
 
 
 

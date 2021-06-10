@@ -1,0 +1,234 @@
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
+label,
+h2,
+h3,
+h4,
+button,
+input,
+p,
+th,
+td,
+tr {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #505050;
+}
+
+.btn-ui {
+    background-color: #4ea786;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 7px 97px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 1px 2px 2px rgba(155, 155, 155, 0.685);
+    transition-duration: 0.4s;
+    padding: 5px;
+    display: block;
+}
+
+.btn-ui:hover {
+    background-color: #367c62;
+}
+
+.btn-ui-de {
+    background-color: #4ea786;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 7px 97px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 1px 2px 2px rgba(155, 155, 155, 0.685);
+    transition-duration: 0.4s;
+    padding: 5px;
+    display: inline-block;
+}
+
+.btn-ui-de:hover {
+    background-color: #367c62;
+}
+
+#index-body {
+    background-color: #637794;
+    background-image: url(../resources/image\ 1.png);
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#form-container {
+    background-color: #FFFFFF;
+    border-radius: 25px;
+}
+
+#logo-index {
+    width: 50px;
+    height: 40px;
+    float: left;
+}
+
+#logo-text {
+    padding-left: 60px;
+}
+
+#navbar-ui {
+    background-color: #367c62;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    padding: 48px 15px 0;
+    box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
+    transition-duration: 0.4s;
+}
+
+body {
+    height: 100%;
+}
+
+i {
+    color: white;
+    transition-duration: 0.5s;
+}
+
+li {
+    transition-duration: 0.5s;
+}
+
+#navbar-ui:hover .nav-item {
+    background-color: rgb(20, 12, 12);
+    margin-right: 20px;
+}
+
+#navbar-ui .nav-item {
+    transition-duration: 0.4s;
+}
+
+#navbar-ui .nav-div-text {
+    transition-duration: 0.4s;
+}
+
+#navbar-ui:hover .nav-div-text {
+    display: inline;
+}
+
+.nav-div-text {
+    display: none;
+}
+
+.div-card-inicio {
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.div-card-inicio:hover {
+    padding-top: 20px;
+}
+
+#logo-navbar {
+    width: 25px;
+    height: 20px;
+}
+
+#sesion-body {
+    background-color: #F6F5F8;
+}
+
+#nav-li-element {
+    transition-duration: 0.5s;
+}
+
+#nav-li-element:hover {
+    background-color: #F6F5F8;
+    opacity: 50%;
+    cursor: pointer;
+}
+
+#nav-li-element:hover #nav-text {
+    color: #1b2636;
+}
+
+#nav-li-element:hover i {
+    color: #48576E;
+}
+
+#nav-text {
+    font-family: 'IBM Plex Sans', sans-serif;
+    color: #FFFF;
+    font-size: 0.8rem;
+    transition-duration: 0.4s;
+}
+
+.div-card-col {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+.div-card-head {
+    background-color: #ffffff;
+    border-radius: 10px 10px 0 0;
+    border: 2px solid #E1E0E5;
+    display: inline-block;
+}
+
+.div-card-body {
+    background-color: #ffffff;
+    border-radius: 0px 0px 10px 10px;
+    border-bottom: 2px solid #E1E0E5;
+    border-left: 2px solid #E1E0E5;
+    border-right: 2px solid #E1E0E5;
+    display: inline-block;
+}
+
+.point {
+    font-size: 1.9rem;
+}
+
+#red {
+    color: #EB575A;
+}
+
+#yellow {
+    color: #F9C15E;
+}
+
+#green {
+    color: #76BC65;
+}
+
+#search-nodo-btn {
+    background-color: #5195FB;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 16px;
+    box-shadow: 1px 2px 2px rgba(155, 155, 155, 0.685);
+    transition-duration: 0.4s;
+    width: 100%;
+    padding: 5px;
+    display: block;
+}
+
+#search-nodo-btn:hover {
+    background-color: #4a6388;
+}
+
+#tabla-datos {
+    background-color: #FFFFFF;
+}
+
+.my-custom-scrollbar {
+    position: relative;
+    height: 500px;
+    overflow: auto;
+}
+
+.table-wrapper-scroll-y {
+    display: block;
+}

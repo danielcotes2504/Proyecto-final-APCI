@@ -16,7 +16,7 @@ router.get('/datosquema/:tipo_quema/:id_zona/:fecha_I/:fecha_F', (req, res) => {
     let idZona = req.params.id_zona;
     let F_Inicio = req.params.fecha_I;
     let F_Fin = req.params.fecha_F;
-
+    console.log("Tipo quema " + tipoQuema)
 
     let Fecha_inicial = new Date(F_Inicio);
     let Fecha_Final = new Date(F_Fin);

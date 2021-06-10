@@ -26,8 +26,12 @@ const renderer = (data) => {
             const col_apellidos = document.createElement('td')
             const btn_editar = document.createElement('button')
             btn_editar.setAttribute('id', `btn-editar-usuarios-${element._id}`)
+            btn_editar.setAttribute('class', 'btn-ui-de')
+            btn_editar.style = "margin-left:10px;"
             const btn_eliminar = document.createElement('button')
             btn_eliminar.setAttribute('id', `btn-eliminar-usuarios-${element._id}`)
+            btn_eliminar.setAttribute('class', 'btn-ui-de')
+            btn_eliminar.style = "margin-left:10px;"
             btn_eliminar.addEventListener('click', (e) => {
                 swal({
                         title: "¿Estas seguro que deseas eliminar este usuario?",
@@ -60,13 +64,14 @@ const renderer = (data) => {
             col_correo.innerHTML = element._id
             col_nombres.innerHTML = element.nombre
             col_apellidos.innerHTML = element.apellido
-            btn_editar.innerHTML = "editar"
-            btn_eliminar.innerHTML = "eliminar"
+            btn_editar.innerHTML = '<i class="fas fa-edit"></i>'
+            btn_eliminar.innerHTML = '<i class="fas fa-trash"></i>'
             body.appendChild(tr)
             tr.appendChild(col_correo)
             tr.appendChild(col_nombres)
             tr.appendChild(col_apellidos)
             tr.appendChild(btn_editar)
+
             tr.appendChild(btn_eliminar)
 
         })
