@@ -3,7 +3,7 @@ window.onload = function() {
         //sessionStorage.setItem("logged", "")
         // verificacion()
         loadData('datosnodo')
-        loadAlert('alertaquemaWeb')
+
 
     }
     //función para obtener los datos del servidor
@@ -15,40 +15,8 @@ const loadData = async(string) => {
     renderer(data)
 
 }
-const loadAlert = async(string) => {
-    const url = `http://${ipsv()}:3000/${string}`
-    const data = await requestData(url)
-    console.log(data)
-    putAlert(data)
 
-}
-
-const putAlert = (data) => {
-        const body = document.querySelector('#body-aviso')
-        const id_aviso = createElement('div')
-        id_aviso.setAttribute('style', 'margin-top: 50px;margin-left: 50px;')
-        id_aviso.setAttribute('role', 'alert')
-        const alert_heading = createElement('h4')
-        const alert_body = createElement('p')
-        const btn = createElement('button')
-        const span = createElement('span')
-        const id_nodo = data[0].id_nodo
-        const id_zona = data[0].id_zona
-        const fecha_hora = new Date(data[0].fecha_hora)
-        const quema_controlada = data[0].alertas.quema_controlada
-
-        if (quema_controlada === 'Quema controlada') {
-
-        } else if (quema_controlada == 'Quema no controlada') {
-
-        } else {
-            body.setAttribute('class', '"alert alert-danger alert-dismissible fade show"')
-        }
-
-
-
-    }
-    //Creación de la tabla dinámica que posee la información de los usuarios
+//Creación de la tabla dinámica que posee la información de los usuarios
 const renderer = (data) => {
         const body = document.querySelector('#tabla-usuarios-body')
         body.innerHTML = " "

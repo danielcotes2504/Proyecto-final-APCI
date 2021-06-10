@@ -3,14 +3,78 @@ window.onload = function() {
         //sessionStorage.setItem("logged", "")
         // verificacion()
         loadData('datosnodo')
-
+        loadAlert('alertaquemaWeb')
     }
     //función para obtener los datos del servidor
 const loadData = async(string) => {
-        const url = `http://${ipsv()}:3000/${string}`
-        const data = await requestData(url)
-        console.log(data)
-        renderer(data)
+    const url = `http://${ipsv()}:3000/${string}`
+    const data = await requestData(url)
+    console.log(data)
+    renderer(data)
+
+}
+
+const loadAlert = async(string) => {
+    const url = `http://${ipsv()}:3000/${string}`
+    const data = await requestData(url)
+    console.log(data)
+    putAlert(data)
+
+}
+
+const putAlert = (data) => {
+        const body = document.querySelector('#body-aviso')
+        const id_aviso = document.createElement('div')
+        id_aviso.setAttribute('style', 'margin-top: 50px;margin-left: 50px;')
+        id_aviso.setAttribute('role', 'alert')
+        const alert_heading = document.createElement('h4')
+        alert_heading.setAttribute('class', 'alert-heading')
+        const alert_body = document.createElement('p')
+        const btn = document.createElement('button')
+        btn.setAttribute('type', 'button')
+        btn.setAttribute('class', 'close')
+        btn.setAttribute('data-dismiss', 'alert')
+        btn.setAttribute('aria-label', 'Close')
+        const span = document.createElement('span')
+        span.setAttribute('aria-hidden', 'true')
+        const id_nodo = data[0].id_nodo
+        const id_zona = data[0].id_zona
+        const fecha_hora = new Date(data[0].fecha_hora)
+        const quema_controlada = data[0].alertas.quema_controlada
+
+        if (quema_controlada === 'Quema no controlada') {
+            id_aviso.setAttribute('class', 'alert alert-danger alert-dismissible fade show')
+            alert_heading.innerHTML = "¡Se ha detectado una quema no controlada!"
+            alert_body.innerHTML = "Se deben tomar acciones"
+            span.innerHTML = "&times;"
+            body.appendChild(id_aviso)
+            id_aviso.appendChild(alert_heading)
+            id_aviso.appendChild(alert_body)
+            id_aviso.appendChild(btn)
+            btn.appendChild(span)
+        } else if (quema_controlada === 'Quema Controlada') {
+            id_aviso.setAttribute('class', 'alert alert-warning alert-dismissible fade show')
+            alert_heading.innerHTML = "¡Se ha detectado una quema controlada!"
+            alert_body.innerHTML = "Consulte si se encuentra en la zona"
+            span.innerHTML = "&times;"
+            body.appendChild(id_aviso)
+            id_aviso.appendChild(alert_heading)
+            id_aviso.appendChild(alert_body)
+            id_aviso.appendChild(btn)
+            btn.appendChild(span)
+        } else if (quema_controlada === 'no detecto') {
+            id_aviso.setAttribute('class', 'alert alert-primary alert-dismissible fade show')
+            alert_heading.innerHTML = "¡No se han detectado quemas!"
+            alert_body.innerHTML = "Estamos a la espera de nuevos datos"
+            span.innerHTML = "&times;"
+            body.appendChild(id_aviso)
+            id_aviso.appendChild(alert_heading)
+            id_aviso.appendChild(alert_body)
+            id_aviso.appendChild(btn)
+            btn.appendChild(span)
+        }
+
+
 
     }
     //Creación de la tabla dinámica que posee la información de los usuarios

@@ -77,7 +77,7 @@ client.on('message', function(topic, message) {
                         let zona = result[i].ZonaP;
                         let fechaIni = new Date(result[i].HorasP.fechaInicialP);
                         let fechaFin = new Date(result[i].HorasP.fechaFinalP);
-                        console.log(fechaIni, fechaFin)
+
                         if (idZona === zona && actual >= fechaIni && actual <= fechaFin) {
                             quema_controlada = "Quema Controlada";
 
