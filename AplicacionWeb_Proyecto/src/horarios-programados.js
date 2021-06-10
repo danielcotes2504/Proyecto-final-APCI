@@ -26,7 +26,11 @@ const renderer = (data) => {
             const col_Hora_Final = document.createElement('td')
             const btn_editar = document.createElement('button')
             btn_editar.setAttribute('id', `btn-editar-horarios-${element._id}`)
+            btn_editar.setAttribute('class', 'btn-ui-de')
+            btn_editar.style = "margin-left:10px;"
             const btn_eliminar = document.createElement('button')
+            btn_eliminar.setAttribute('class', 'btn-ui-de')
+            btn_eliminar.style = "margin-left:10px;"
             btn_eliminar.setAttribute('id', `btn-eliminar-horarios-${element._id}`)
             btn_eliminar.addEventListener('click', (e) => {
 
@@ -69,8 +73,8 @@ const renderer = (data) => {
             col_Fecha.innerHTML = Fecha
             col_Hora_Inicial.innerHTML = Hora_I
             col_Hora_Final.innerHTML = Hora_F
-            btn_editar.innerHTML = "editar"
-            btn_eliminar.innerHTML = "eliminar"
+            btn_editar.innerHTML = '<i class="fas fa-edit"></i>'
+            btn_eliminar.innerHTML = '<i class="fas fa-trash"></i>'
             body.appendChild(tr)
             tr.appendChild(col_Zona)
             tr.appendChild(col_Fecha)

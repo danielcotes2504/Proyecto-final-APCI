@@ -61,6 +61,29 @@ router.get('/alertaquema', (req, res) => {
         });
     });
 });
+router.get('/datosquemaL/:id_zona/:id_nodo', (req, res) => {
+    let tipoQuema = req.body.tipo_quema; //recogemos el parámetro enviado en la url
+    let idZona = req.params.id_zona;
+    let idNodo = req.params.id_nodo;
 
+
+    let idnodopar = parseInt(idNodo);
+
+
+    const query = [{ "$match": { "id_zona": idZona, "id_nodo": idnodopar } }, { "$sort": { _id: -1 } }, { $limit: 1 },
+        { $project: { ZonaP: "$id_zona", NodoP: "$id_nodo", QuemaD: "$alertas.quema_controlada", FechaI: "$fecha_hora.fechaInicialP" } }
+    ];
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        let dbo = db.db("DB_ManuelitaCañas");
+        dbo.collection("datosNodo").aggregate(query).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.json(result);
+            db.close();
+        });
+    });
+});
 
 module.exports = router;

@@ -5,27 +5,122 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Usuarios - Editar</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel='stylesheet' type='text/css' media='screen' href='../resources/style.css'>
+    <link rel="stylesheet" type="text/css" href="../styles/main.css" media="screen" />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap " rel="stylesheet " />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>!-->
 </head>
 
 <body>
-    <h1>Usuarios - Editar</h1>
-    <h3 id="h3-correo"></h3>
-    <label for="fname">Nombres</label><br />
-    <input type="text" id="edit-user-input-nombres" /><br />
-    <label for="lname">Apellidos</label><br />
-    <input type="text" id="edit-user-input-apellidos" /><br />
-    <label for="fname">Nueva contraseña</label><br />
-    <input type="text" id="edit-user-input-npassword" /><br />
-    <label for="lname">Confirmar contraseña</label><br />
-    <input type="text" id="edit-user-input-npassword2" /><br />
-    <button type="button" id="update-user-btn">Actualizar</button>
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                <nav class="navbar-bg-light" id="navbar-ui">
+                    <ul class="nav navbar-nav">
+                        <!-- <img id="logo-navbar" src="../resources/logo.png" alt="logo" />-->
+                        <br> <br>
+
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-home"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Inicio">
+                                <a id="nav-text">Inicio </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+
+                                    <i class="fas fa-code-branch"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Nodos">
+                                <a id="nav-text">Nodos </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-bell"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Alertas">
+                                <a id="nav-text">Alertas </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-users"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Usuarios">
+                                <a id="nav-text">Administrar Usuarios </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-calendar-alt"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Horario">
+                                <a id="nav-text">Horarios programados </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Salir">
+                                <a id="nav-text">Salir</a>
+                            </div>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-11">
+                <br>
+                <h2>Usuarios - Editar</h2>
+                <br>
+                <h4 id="h3-correo"></h4>
+                <label for="fname">Nombres</label><br />
+                <input type="text" id="edit-user-input-nombres" /><br />
+                <label for="lname">Apellidos</label><br />
+                <input type="text" id="edit-user-input-apellidos" /><br />
+                <label for="fname">Nueva contraseña</label><br />
+                <input type="password" id="edit-user-input-npassword" /><br />
+                <label for="lname">Confirmar contraseña</label><br />
+                <input type="password" id="edit-user-input-npassword2" /><br /><br />
+                <button class="btn-ui" type="button" id="update-user-btn">Actualizar</button>
+            </div>
+        </div>
+    </div>
 </body>
 <script src="../sesion.js"></script>
 <script src="../request-put.js"></script>
 <script src='../request.js'></script>
 <script src='../usuarios-editar.js'></script>
+<script src="../navbar.js"></script>
 
 </html>
