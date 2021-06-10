@@ -3,7 +3,7 @@ require('../src/host')()
 let client = mqtt.connect(`mqtt://${hostName()}`); //PC
 //let client = mqtt.connect('mqtt://ec2-18-206-56-233.compute-1.amazonaws.com:1883');//Server
 const mysql = require('mongodb');
-var MongoClient = require('mongodb').MongoClient;
+let MongoClient = require('mongodb').MongoClient;
 const { json } = require('express');
 let url = `mongodb://${hostName()}:27017/`; //PC
 //let url ="mongodb://ec2-18-206-56-233.compute-1.amazonaws.com:27017/"//Server
@@ -25,19 +25,18 @@ client.on('message', function(topic, message) {
     co2 = json1.datos_nodo.concentracion;
     latitud = json1.datos_nodo.ubicacion.lat;
     longitud = json1.datos_nodo.ubicacion.lng;
-    let today = new Date().toLocaleString('es-CO', { timeZone: "America/Bogota" });
+    let today = new Date().toString().toLocaleString('es-CO', { timeZone: "America/Bogota" });
     let date = new Date(today);
-    //zonas y horas programadas
-    let program_zona = "zona_2";
-    let program_fhI = new Date('2021-4-27 9:00:00 AM');
-    let program_fhF = new Date('2021-4-27 7:00:00 PM');
     //////
     let idZona = asignarZona(latitud, longitud);
     let quema_detectada = detectarIncendio(co2, temp);
+    //Método de Julián
     let quema_controlada;
-    if (detectada == 1) { quema_controlada = quemaControlada(idZona, date, program_zona, program_fhI, program_fhF); }
+    // quema_controlada = aletarUsuario(quema_detectada, idZona, date.toString()); //Retorna booleano sobre si alertar o no al usuario de una quema no controlada
+    quema_controlada = " "
+        // if (detectada == 1) { quema_controlada = quemaControlada(idZona, date, program_zona, program_fhI, program_fhF); }
 
-    console.log("estas son las horas de hoy " + date.getHours());
+    // console.log("estas son las horas de hoy " + date.getHours());
 
     //console.log(message.toString())
 
@@ -45,26 +44,75 @@ client.on('message', function(topic, message) {
     json1 = JSON.parse(message.toString());
     json1["fecha_hora"] = date;
     json1["id_zona"] = idZona;
-    if (detectada == 1) { json1["alertas"] = { "quema_detectada": quema_detectada, "quema_controlada": quema_controlada } } else { json1["alertas"] = { "quema_detectada": quema_detectada } }
 
 
 
-
-
-    console.log(json1);
-    //client.publish('topico2', 'mensaje recibido')
-    MongoClient.connect(url, function(err, db) {
-        if (err) throw err;
-        var dbo = db.db("DB_ManuelitaCañas");
-        dbo.collection("datosNodo").insertOne(json1, function(err, res) {
+    if (quema_detectada === "No hay quema") {
+        quema_controlada = "no detecto"
+        json1["alertas"] = { "quema_detectada": quema_detectada, "quema_controlada": quema_controlada }
+        console.log(json1)
+        MongoClient.connect(url, function(err, db) {
             if (err) throw err;
-            console.log("1 document inserted");
-            db.close();
+            var dbo = db.db("DB_ManuelitaCañas");
+            dbo.collection("datosNodo").insertOne(json1, function(err, res) {
+                if (err) throw err;
+                console.log("1 document inserted");
+                db.close();
+            });
+
         });
+    } else if (quema_detectada === "Hay quema") {
 
-        //client.end() //si se habilita esta opción el servicio termina
+        MongoClient.connect(url, function(err, db) {
+                if (err) throw err;
+                var dbo = db.db("DB_ManuelitaCañas");
+                dbo.collection("datosHorario").find({}).toArray(function(err, result) {
+                    if (err) throw err;
+                    console.log(result);
+                    db.close();
+                    var actual = new Date();
+                    // var actual = new Date("2021-04-24T13:00:00.000Z");
 
-    })
+                    for (let i = 0; i < result.length; i++) {
+                        let zona = result[i].ZonaP;
+                        let fechaIni = new Date(result[i].HorasP.fechaInicialP);
+                        let fechaFin = new Date(result[i].HorasP.fechaFinalP);
+                        console.log(fechaIni, fechaFin)
+                        if (idZona === zona && actual >= fechaIni && actual <= fechaFin) {
+                            quema_controlada = "Quema Controlada";
+
+
+                        } else {
+                            quema_controlada = "Quema no controlada";
+
+
+                        }
+
+                    }
+                    //  console.log("quema controlada es:" + quema_controlada);
+
+                    json1["alertas"] = { "quema_detectada": quema_detectada, "quema_controlada": quema_controlada }
+                    console.log(json1)
+                    MongoClient.connect(url, function(err, db) {
+                        if (err) throw err;
+                        var dbo = db.db("DB_ManuelitaCañas");
+                        dbo.collection("datosNodo").insertOne(json1, function(err, res) {
+                            if (err) throw err;
+                            console.log("1 document inserted");
+                            db.close();
+                        });
+
+                    });
+                });
+            }
+
+            //client.publish('topico2', 'mensaje recibido')
+
+
+            //client.end() //si se habilita esta opción el servicio termina
+
+        )
+    }
 
 })
 
@@ -80,33 +128,15 @@ function detectarIncendio(concentracion, temperatura) {
     return alerta;
 }
 
-function quemaControlada(Nodo_zona, Nodo_fechahora, Program_zona, Program_fechahoraI, Program_fechahoraF) {
-    //ojo a esto con lo de las dos fechas para el sig corte xd
-    let alerta = "";
-
-    if (Nodo_zona == Program_zona && Nodo_fechahora.getDate() == Program_fechahoraI.getDate() &&
-        Nodo_fechahora.getFullYear() == Program_fechahoraI.getFullYear() &&
-        Nodo_fechahora.getMonth() == Program_fechahoraI.getMonth() &&
-        Nodo_fechahora.getHours() >= Program_fechahoraI.getHours() && Nodo_fechahora.getHours() <= Program_fechahoraF.getHours()) {
-        alerta = "Quema controlada";
-    } else {
-        alerta = "Quema no controlada";
-    }
-
-
-
-    return alerta;
-}
-
 function asignarZona(latitud, longitud) {
 
     let zona = "3";
 
     if (latitud >= 3.584063 && latitud < 3.586440 && longitud >= -76.282985 && longitud <= -76.280276) {
-        zona = "zona_1";
+        zona = "1";
         console.log("entro a zona 1");
     } else if (latitud >= 3.586440 && latitud <= 3.589096 && longitud >= -76.285764 && longitud < -76.282985) {
-        zona = "zona_2";
+        zona = "2";
         console.log("entro a zona 2");
     }
     return zona;

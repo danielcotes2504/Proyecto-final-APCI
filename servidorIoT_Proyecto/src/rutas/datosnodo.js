@@ -132,7 +132,7 @@ router.get('/datosnodoL/:id_zona/:id_nodo', (req, res) => {
     MongoClient.connect(url, function(err, db) {
         if (err) throw err;
         var dbo = db.db("DB_ManuelitaCañas");
-        dbo.collection("datosNodo").find(query, { limit: 1 }).sort({ $natural: -1 }).toArray(function(err, result) {
+        dbo.collection("datosNodo").find(query, { limit: 1 }).sort({ _id: -1 }).toArray(function(err, result) {
             if (err) throw err;
             console.log(result);
             res.json(result);

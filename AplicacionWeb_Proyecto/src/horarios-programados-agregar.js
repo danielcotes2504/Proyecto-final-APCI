@@ -25,16 +25,18 @@ document.querySelector('#btn-añadir-horario').addEventListener("click", (e) => 
     const HoraI = document.querySelector('#input-hora-inicial').value
     const HoraF = document.querySelector('#input-hora-final').value
     const Zona = document.querySelector('#input-zona').value
-    let today = new Date().toLocaleString('es-CO', { timeZone: "America/Bogota" });
+    let today = new Date().toString().toLocaleString('es-CO', { timeZone: "America/Bogota" });
     let fecha_selec = new Date(Fecha)
-    let date = new Date()
-
+    let date = new Date(today)
+    console.log(fecha_selec.toString())
+    console.log(date.toString())
+    console.log("date")
     let Fecha_Completa_I = Fecha + " " + HoraI
     let Fecha_Completa_F = Fecha + " " + HoraF
     console.log(new Date(Fecha_Completa_I).getHours())
     if (Fecha !== "" && Zona !== "") {
 
-        if (fecha_selec < date) {
+        if (Fecha_Completa_I < date) {
             swal({
                 title: "La fecha seleccionada ya pasó",
 

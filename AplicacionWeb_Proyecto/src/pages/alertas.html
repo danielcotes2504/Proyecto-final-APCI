@@ -3,25 +3,33 @@
 
 <head>
     <meta charset='utf-8'>
-    <title>Horarios programados</title>
+    <title>Consultar Dispositivos</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <link rel="stylesheet" href="../MCDatepicker-master/dist/mc-calendar.min.css" />
-    <script src="../MCDatepicker-master/dist/mc-calendar.min.js"></script>
     <link rel='stylesheet' type='text/css' media='screen' href='../resources/style.css'>
     <link rel="stylesheet" type="text/css" href="../styles/main.css" media="screen" />
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap " rel="stylesheet " />
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
-    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>!-->
-    <!-- <script src='main.js'></script>-->
-    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>!-->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
     <!-- <script src='main.js'></script>-->
 
 </head>
 
 <body>
+
     <div class="container">
+        <div id="body-aviso">
+            <div style="margin-top: 50px;margin-left: 50px;" role="alert">
+                <h4>¡Se ha detectado una quema no controlada!</h4>
+                <p>Si rey, se detecto una re cinta</p>
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+        </div>
         <div class="row">
             <div class="col-1">
                 <nav class="navbar-bg-light" id="navbar-ui">
@@ -104,66 +112,70 @@
                     </ul>
                 </nav>
             </div>
+
             <div class="col-11">
                 <div class='container'>
                     <br>
-                    <h2 id='Usuarios'>Horarios programados</h1>
-                        <br>
-                        <div class='row'>
-                            <div class='col-4'>
-                                <label for="fname">Filtrar por zona:</label><br/>
-                                <input type="number" id="user-search-zona" name="fname" />
-                                <button class="btn-ui-de" type="button" id="btn-buscar-zona">Buscar</button>
-                            </div>
-                            <div class='col-4'>
-                                <label for="fname">Filtrar por fecha:</label><br/>
-                                <input id="date-picker" type="text" name="fname" />
-                                <button class="btn-ui-de" type="button" id="btn-buscar-fecha">Buscar</button>
-                            </div>
-                            <div class='col-4'>
-                                <br>
-                                <button class="btn-ui" type="button" id="btn-programar-horario">Programar quema</button>
-                                <br>
-                                <button class="btn-ui" type="button" id="btn-quitar-filtro">Quitar filtros</button>
-                            </div>
+                    <h2 id='Usuarios' class="display-5 fw-bold">Dispositivos</h2>
+                    <br>
+                    <div class='row'>
+                        <div class='col-3'>
+                            <label for="fname">Filtrar por zona:</label><br />
+                            <input type="text" id="user-search-zona" class="form-control" name="fname" />
+                            <!-- <button type="button" id="btn-buscar-usuario">Buscar</button> -->
                         </div>
-                        <br>
-                        <div class='row'>
-
-                            <div class='col-11 table-wrapper-scroll-y my-custom-scrollbar'>
-                                <table class="table table-striped table-bordered" id='tabla-horarios'>
-                                    <thead>
-                                        <tr>
-                                            <th scope="col">Zona</th>
-                                            <th scope="col">Fecha</th>
-                                            <th scope="col">Hora Inicial</th>
-                                            <th scope="col">Hora Final</th>
-                                            <th scope="col">Funciones</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody id='tabla-horarios-body'>
-
-
-                                    </tbody>
-                                </table>
-                            </div>
-
-
+                        <div class='col-3'>
+                            <label for="fname">Filtrar por ID:</label><br />
+                            <input type="text" id="user-search-idnodo" class="form-control" name="fname" />
                         </div>
+                        <div class='col-1'>
+                            <label for="fname"></label><br />
+                            <button class="btn-ui" type="submit" id="btn-buscar">Buscar</button>
+                            <!-- <button type="button" id="btn-buscar">Buscar</button> -->
+                        </div>
+                        <div class='col-3'>
+                            <br>
+                            <button class="btn-ui" type="button" id="btn-quitar-filtro"> Quitar filtros</button>
+                        </div>
+                    </div>
+                    <br>
+                    <div class='row'>
+
+                        <div class='col-11  table-wrapper-scroll-y my-custom-scrollbar'>
+                            <table class="table table-striped table-bordered" id='tabla-usuarios'>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Zona</th>
+                                        <th scope="col">ID Nodo</th>
+                                        <th scope="col">Temperatura</th>
+                                        <th scope="col">Concentración</th>
+                                        <th scope="col">Quema Detectada</th>
+                                        <th scope="col">Quema Controlada</th>
+                                    </tr>
+                                </thead>
+                                <tbody id='tabla-usuarios-body'>
+
+
+                                </tbody>
+                            </table>
+                        </div>
+
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 
 
-</body>
-<script src="../sesion.js"></script>
-<script src="../request-delete.js"></script>
-<script src='../request.js'></script>
-<script src='../horarios-programados.js'></script>
-<script src="../navbar.js"></script>
-<script type="module" src="../date-picker.js"></script>
 
+</body>
+<!--<script src="../sesion.js"></script>--->
+<!-- <script src="../request-delete.js"></script> -->
+<script src="../sesion.js"></script>
+<script src='../request.js'></script>
+<script src='../alertas.js'></script>
+<script src="../navbar.js"></script>
 
 
 

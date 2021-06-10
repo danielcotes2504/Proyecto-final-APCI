@@ -61,6 +61,25 @@ router.get('/alertaquema', (req, res) => {
         });
     });
 });
+
+router.get('/alertaquemaWeb', (req, res) => {
+
+
+    const sort = {
+        'fecha_hora': -1
+    };
+    const limit = 1;
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("DB_ManuelitaCañas");
+        dbo.collection("datosNodo").find({}, { sort: sort, limit: limit }).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.json(result);
+            db.close();
+        });
+    });
+});
 router.get('/datosquemaL/:id_zona/:id_nodo', (req, res) => {
     let tipoQuema = req.body.tipo_quema; //recogemos el parámetro enviado en la url
     let idZona = req.params.id_zona;
@@ -71,7 +90,7 @@ router.get('/datosquemaL/:id_zona/:id_nodo', (req, res) => {
 
 
     const query = [{ "$match": { "id_zona": idZona, "id_nodo": idnodopar } }, { "$sort": { _id: -1 } }, { $limit: 1 },
-        { $project: { ZonaP: "$id_zona", NodoP: "$id_nodo", QuemaD: "$alertas.quema_controlada", FechaI: "$fecha_hora.fechaInicialP" } }
+        { $project: { ZonaP: "$id_zona", NodoP: "$id_nodo", QuemaD: "$alertas.quema_controlada", FechaI: "$fecha_hora" } }
     ];
 
     MongoClient.connect(url, function(err, db) {
@@ -85,5 +104,4 @@ router.get('/datosquemaL/:id_zona/:id_nodo', (req, res) => {
         });
     });
 });
-
 module.exports = router;

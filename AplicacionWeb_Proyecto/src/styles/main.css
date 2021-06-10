@@ -84,13 +84,17 @@ tr {
     padding-left: 60px;
 }
 
+.alert {
+    z-index: 2;
+}
+
 #navbar-ui {
     background-color: #367c62;
     position: fixed;
     top: 0;
     bottom: 0;
     left: 0;
-    z-index: 100;
+    z-index: 0;
     padding: 48px 15px 0;
     box-shadow: inset -1px 0 0 rgba(0, 0, 0, .1);
     transition-duration: 0.4s;
