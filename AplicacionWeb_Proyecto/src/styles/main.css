@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Signika:wght@500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans&display=swap');
 label,
 h2,
@@ -10,6 +11,16 @@ th,
 td,
 tr {
     font-family: 'IBM Plex Sans', sans-serif;
+    color: #505050;
+}
+
+#body-index {
+    position: absolute;
+}
+
+#logo-text {
+    padding-top: 20px;
+    font-family: 'Signika', sans-serif;
     color: #505050;
 }
 
@@ -65,9 +76,8 @@ tr {
 }
 
 #logo-index {
-    width: 50px;
-    height: 40px;
-    float: left;
+    width: 80px;
+    height: 80px;
 }
 
 #logo-text {
@@ -130,8 +140,8 @@ li {
 }
 
 #logo-navbar {
-    width: 25px;
-    height: 20px;
+    width: 35px;
+    height: 35px;
 }
 
 #sesion-body {

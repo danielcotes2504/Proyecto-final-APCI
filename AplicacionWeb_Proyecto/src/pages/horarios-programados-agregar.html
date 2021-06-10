@@ -3,7 +3,7 @@
 
 <head>
     <meta charset='utf-8'>
-    <title>Home</title>
+    <title>Horarios programados- agregar</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
     <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>!-->
     <!-- <script src='main.js'></script>-->
@@ -17,31 +17,124 @@
     <link rel="stylesheet" href="../MCDatepicker-master/dist/mc-calendar.min.css" />
     <script src="../MCDatepicker-master/dist/mc-calendar.min.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/main.css" media="screen" />
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <!--<link rel='stylesheet' type='text/css' media='screen' href='main.css'>!-->
 </head>
 
 <body>
 
+    <div class="container">
+        <div class="row">
+            <div class="col-1">
+                <nav class="navbar-bg-light" id="navbar-ui">
+                    <ul class="nav navbar-nav">
+                        <img id="logo-navbar" src="../resources/logo.png" alt="logo" />
+                        <br> <br>
 
-    <div>
-        <label for="login-user-input-password">Fecha</label>
-        <input id="date-picker" type="text" />
-    </div>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-home"></i>
 
-    <div class="example2">
-        <label for="login-user-input-password">Hora inicial</label>
-        <input id="input-hora-inicial" class=" timepicker-ui-input " value="9:00 AM " />
-    </div>
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Inicio">
+                                <a id="nav-text">Inicio </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
 
-    <div class="example3">
-        <label for="login-user-input-password">Hora final</label>
-        <input id="input-hora-final" class=" timepicker-ui-input " value="9:00 PM " />
-    </div>
+                                    <i class="fas fa-code-branch"></i>
 
-    <div>
-        <label for="login-user-input-password">Zona</label>
-        <input id="input-zona" type="number" />
-    </div>
-    <button type="button" id="btn-añadir-horario">Añadir horario</button>
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Nodos">
+                                <a id="nav-text">Nodos </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-bell"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Alertas">
+                                <a id="nav-text">Alertas </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-users"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Usuarios">
+                                <a id="nav-text">Administrar Usuarios </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-calendar-alt"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Horario">
+                                <a id="nav-text">Horarios programados </a>
+                            </div>
+                        </div>
+                        <br>
+                        <div id="nav-li-element" class="row">
+                            <div class="col-1">
+                                <li class="nav-item">
+                                    <i class="fas fa-sign-out-alt"></i>
+
+                                </li>
+                            </div>
+                            <div class="col nav-div-text" id="nav-div-text-Salir">
+                                <a id="nav-text">Salir</a>
+                            </div>
+                        </div>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-11">
+                <br>
+                <h2>Horarios programados - Agregar</h2>
+                <br>
+                <div>
+                    <label for="login-user-input-password">Fecha</label> <br>
+                    <input id="date-picker" type="text" />
+                </div>
+
+                <div class="example2">
+                    <label for="login-user-input-password">Hora inicial</label> <br>
+                    <input id="input-hora-inicial" class=" timepicker-ui-input " value="9:00 AM " />
+                </div>
+
+                <div class="example3">
+                    <label for="login-user-input-password">Hora final</label> <br>
+                    <input id="input-hora-final" class=" timepicker-ui-input " value="9:00 PM " />
+                </div>
+
+                <div>
+                    <label for="login-user-input-password">Zona</label> <br>
+                    <input id="input-zona" type="number" />
+                </div>
+                <br>
+                <button class="btn-ui" type="button" id="btn-añadir-horario">Añadir horario</button>
+            </div>
+        </div>
+
 
 
 
@@ -54,6 +147,6 @@
 <script type="module" src="../time-picker.mjs"></script>
 <script type="module" src="../date-picker.js"></script>
 <script type="module" src="../horarios-programados-agregar.js"></script>
-
+<script src="../navbar.js"></script>
 
 </html>
