@@ -1,7 +1,7 @@
 window.onload = function() {
     //sessionStorage.setItem("logged", "")
     // verificacion()
-    loadData('datosnodo')
+    loadData('/datosquema/:tipo_quema/:id_zona/:fecha_I/:fecha_F')
 
 }
 
@@ -21,7 +21,7 @@ const renderer = (data) => {
 
 
         datos_quemas.push(i)
-        i++;
+        i += 2;
     })
 
     let ctx = document.getElementById('myChart').getContext('2d')

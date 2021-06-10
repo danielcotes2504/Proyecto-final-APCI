@@ -184,3 +184,42 @@ router.put('/datosm/put/:id', (req, res) => {
     });
 
 });
+
+router.get('/horarios2/:id_zona', (req, res) => {
+
+    let idZona = req.params.id_zona; //recogemos el parámetro enviado en la url
+
+    const query = [{ "$match": { "ZonaP": "6" } }, { "$sort": { "_id": -1 } },
+        {
+            $project: {
+                ZonaP: "$ZonaP",
+                Year: { $year: "$HorasP.fechaInicialP" },
+                Month: { $month: "$HorasP.fechaInicialP" },
+                Day: { $dayOfMonth: "$HorasP.fechaInicialP" },
+                Hour: { $hour: "$HorasP.fechaInicialP" },
+                Minutes: { $minute: "$HorasP.fechaInicialP" },
+                Seconds: { $second: "$HorasP.fechaInicialP" },
+                Milliseconds: { $millisecond: "$HorasP.fechaInicialP" },
+
+                Year1: { $year: "$HorasP.fechaFinalP" },
+                Month1: { $month: "$HorasP.fechaFinalP" },
+                Day1: { $dayOfMonth: "$HorasP.fechaFinalP" },
+                Hour1: { $hour: "$HorasP.fechaFinalP" },
+                Minutes1: { $minute: "$HorasP.fechaFinalP" },
+                Seconds1: { $second: "$HorasP.fechaFinalP" },
+                Milliseconds1: { $millisecond: "$HorasP.fechaFinalP" }
+            }
+        }
+    ];
+
+    MongoClient.connect(url, function(err, db) {
+        if (err) throw err;
+        var dbo = db.db("DB_ManuelitaCañas");
+        dbo.collection("datosHorario").aggregate(query).toArray(function(err, result) {
+            if (err) throw err;
+            console.log(result);
+            res.json(result);
+            db.close();
+        });
+    });
+});
